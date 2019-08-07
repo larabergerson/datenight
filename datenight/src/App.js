@@ -1,36 +1,49 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import Jumbotron from "./pages/home"
 import Options from "./pages/options"
 import Restaurants from "./pages/restaurants"
-import Api from "../utils/API"
+import API from "./utils/API"
 import { STATES } from 'mongoose';
+require('dotenv').config()
 
 
-function App() {
+class App extends Component {
   state = {
     restaurantList: []
   }
-  restaurants = () => {
-    Api.restaurants()
+
+  
+  restaurant = () => {
+    console.log("heree");
+    API.restaurantApi()
       .then(results => {
-      
-    })
+    console.log(this.state)
+
+        this.setState({
+          restaurantList: results
+        })
+      })
   }
-  return (
-    <BrowserRouter>
+  render() {
+    console.log(this.restaurant);
+    console.log(this.state)
+    return (
+     
+      < BrowserRouter >
       <div className="App">
         <Switch>
-        <Route exact path="/" component={Jumbotron}></Route>
-        <Route exact path="/options" component={Options}></Route>
-        <Route path="/restaurants" component={Restaurants}></Route>
-          
-        
+          <Route exact path="/" component={Jumbotron}></Route>
+            <Route exact path="/options" render={(props) => <Options {...props} restaurantsFunc={this.restaurant} />} 
+            />
+            <Route path="/restaurants"component={Restaurants}> </Route>
         </Switch>
-        </div>
-      </BrowserRouter>
+            
+      </div>
+      </BrowserRouter >
     
   );
+  }
 }
 
 export default App;
