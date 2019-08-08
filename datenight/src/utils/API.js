@@ -1,26 +1,35 @@
-import axios from "axios";
-import keys from "../keys";
-const Yelp = require('yelpv3');
-var yelp = new Yelp({
-  app_id: process.env.REACT_APP_yelp_clientID,
-  app_secret: process.env.REACT_APP_yelp_APIKey
-});
-// var yelp = new Yelp(keys.yelp);
-export default {
-  restaurantApi: function (query) {
-    console.log(query);
-    console.log("You clicked me!!!");
-    console.log(keys);
-      console.log("YO: " + keys.key);
-    //https://www.yelp.com/developers/documentation/v3/business_search
+// import axios from "axios";
+// import keys from "../keys";
+const yelp = require('yelp-fusion');
 
-    return yelp.search({term: 'food', location: '60610', limit: 10})
-    .then(function (data) {
-      console.log(data);
-      
-    })
-    .catch(function (err) {
-        console.error(err);
-    });
+const apiKey = "eD7cxOSpnXgM3AfC8B8eDXS6La1cCMEc7a7TXkjTvjdiwAsyCsdM_GDr1U7JT1PwKsSMBJW1W8-5gS5bCfVX1H6yAkxdnyrBvf-4e1P7pBtHJiJOo8nqgWIcqklMXXYx"
+
+
+const searchRequest = {
+  term:'Four Barrel Coffeezzzzz',
+  location: 'san francisco, ca'
+};
+
+
+// const client = yelp.client(apiKey);
+
+// client.search(searchRequest).then(response => {
+// //   const firstResult = response.jsonBody.businesses[0];
+// //   const prettyJson = JSON.stringify(firstResult, null, 4);
+// //   console.log(prettyJson);
+// // }).catch(e => {
+// //   console.log(e);
+// });
+
+
+export default {
+  restaurantApi: function () {
+    // client.search(searchRequest).then(response => {
+    //   const firstResult = response.jsonBody.businesses[0];
+    //   const prettyJson = JSON.stringify(firstResult, null, 4);
+    //   console.log(prettyJson);
+    // }).catch(e => {
+    //   console.log(e);
+    // });
   }
 }

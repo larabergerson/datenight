@@ -4,7 +4,6 @@ import Jumbotron from "./pages/home"
 import Options from "./pages/options"
 import Restaurants from "./pages/restaurants"
 import API from "./utils/API"
-import { STATES } from 'mongoose';
 require('dotenv').config()
 
 
@@ -16,14 +15,14 @@ class App extends Component {
   
   restaurant = () => {
     console.log("heree");
-    API.restaurantApi()
-      .then(results => {
-    console.log(this.state)
-
-        this.setState({
-          restaurantList: results
-        })
+    API.restaurantApi.then(results => {
+      console.log(this.state)
+    this.setState({
+        restaurantList: results
       })
+    }).catch(err => {
+      throw err
+    })
   }
   render() {
     console.log(this.restaurant);
@@ -34,9 +33,9 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route exact path="/" component={Jumbotron}></Route>
-            <Route exact path="/options" render={(props) => <Options {...props} restaurantsFunc={this.restaurant} />} 
-            />
-            <Route path="/restaurants"component={Restaurants}> </Route>
+            <Route exact path="/options" render={(props) => <Options {...props} restaurantsFunc={this.restaurant} />}
+          />
+            <Route path="/restaurants"component={Restaurants}></Route>
         </Switch>
             
       </div>
