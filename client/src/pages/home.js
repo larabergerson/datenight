@@ -16,8 +16,9 @@ class FindRestaurants extends Component {
   getRestaurants = () => {
     API.findAllYelp()
       .then(res => {
+        console.log(res.data)
         this.setState({
-          resturants: res.data
+          restaurants: res.data
         })
       })
       .catch(err => {
@@ -31,7 +32,8 @@ class FindRestaurants extends Component {
   //   API.saveYelp(id)
   // }
 
-  render(){
+  render() {
+    console.log(this.state.restaurants[0])
   return (
     <div>
       {this.state.restaurants ? 

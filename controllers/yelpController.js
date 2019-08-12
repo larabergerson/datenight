@@ -20,7 +20,7 @@ const yelpController = {
             console.log('success');
             console.log(response);
             console.log(response.jsonBody.businesses[0].name);
-            res.json(response.jsonBody);
+            res.json(response.jsonBody.businesses);
         }).catch(e => {
             console.log(e)
         });
