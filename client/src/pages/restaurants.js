@@ -12,7 +12,7 @@ class Restaurants extends Component {
     var query = `${'https://cors-anywhere.herokuapp.com/'}https://api.yelp.com/v3/businesses/search`;
     axios.get(query, {
       headers: {
-        Authorization: `Bearer eD7cxOSpnXgM3AfC8B8eDXS6La1cCMEc7a7TXkjTvjdiwAsyCsdM_GDr1U7JT1PwKsSMBJW1W8-5gS5bCfVX1H6yAkxdnyrBvf-4e1P7pBtHJiJOo8nqgWIcqklMXXYx`
+        Authorization: `Bearer fxHF0fV_DIEH61vI9wY3AY2OW5CuJ5VP1LzPl_f6EBhoWaqTc_Iq284uKxXLZcE2NBpgtmlF1y0pugFhy1uTlXKJqIZtGwF2000AX0AbkzFyxfnzf37ZptOLeHNMXXYx`
       },
       params: {
             location: "chicago",

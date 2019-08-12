@@ -10,7 +10,6 @@ export default function Options(props)
             Choose a subject: 
         </a>
             <a href="/api/restaurants" className="list-group-item list-group-item-action">Restaurants</a>
-            <button onClick={props.restaurantsFunc}> test </button>
         <a href="#" className="list-group-item list-group-item-action">Concerts</a>
         <a href="#" className="list-group-item list-group-item-action">Movies</a>
         <a href="#" className="list-group-item list-group-item-action disabled" aria-disabled="true">Street Fests</a>
