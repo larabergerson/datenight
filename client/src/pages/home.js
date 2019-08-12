@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import API from "../utils/API"
 // import Axios from "axios";
 // import YelpFusion from "yelp-fusion";
+import Card from '../components/Card';
 
-class FindRestaurants extends Component {
+class Home extends Component {
   state = {
     restaurants: [],
     message: ""
@@ -23,7 +24,7 @@ class FindRestaurants extends Component {
       })
       .catch(err => {
         this.setState({
-          message: err
+          message: "Error loading Results"
         })
       })
   }
@@ -33,23 +34,19 @@ class FindRestaurants extends Component {
   // }
 
   render() {
-    console.log(this.state.restaurants[0])
   return (
-    <div>
-      {this.state.restaurants ? 
-      this.state.restaurants.map(oneRestaurant => (
-        <div>
-          <p>{oneRestaurant.name}</p>
-        </div>
+  <div className='container'>
+      {this.state.restaurants ? this.state.restaurants.map((oneRestaurant, i) => (
+        <Card image={oneRestaurant.image} name={oneRestaurant.name} location={oneRestaurant.location.address1} url={oneRestaurant.url} i={i} />
       )) : (
-            <h1>{this.state.message}</h1>
-        )}
+        <h1>{this.state.message}</h1>
+      )}
   </div>
   )
 }
 }
 
-export default FindRestaurants;
+export default Home;
 
           
 // export default function Jumbotron()
