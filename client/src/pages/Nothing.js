@@ -1,21 +1,21 @@
 import React from "react";
 // import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "react-bootstrap/Jumbotron";
+import Alert from "react-bootstrap/Alert";
 
 function Nothing() {
   return (
  
-      <Jumbotron>
-          <div className="jumbotron">
+      <Alert>
+          <div className="alert bg-secondary">
             <h1 className="display-4">404 Page Not Found</h1>
-            <h1>
+            <p>
               <span role="img" aria-label="Face With Rolling Eyes Emoji">
                 🙄
               </span>
-            </h1>
-            <a className="btn btn-primary btn-lg" href="http://localhost:3000" role="button">Click to Start Over</a>
+            </p>
+            <a className="btn btn-dark btn-lg" href="http://localhost:3000/" role="button">Click to Start Over</a>
             </div>
-          </Jumbotron>
+          </Alert>
   );
 }
 

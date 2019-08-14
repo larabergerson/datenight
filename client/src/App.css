@@ -18,9 +18,34 @@
 }
 
 body {
-  margin: 0;
+  background-image: url("./images/sharon-mccutcheon-WqPAETBU2G8-unsplash.jpg");
+  display: block;
+  background-repeat: no-repeat;
   padding: 0;
   /* more styles */
+}
+
+.jumbotron{
+  margin: 50px 350px;;
+}
+
+
+
+p{
+  font-family: Arial, Helvetica, sans-serif;
+  color:white;
+  font-size: 24px;
+}
+
+.cardContainer{
+ display: grid;
+}
+.alert{
+  width: 80%;
+  margin-left: 120px;
+  margin-top: 20px;
+  padding: 30px;
+ 
 }
 /* .particles {
   position: fixed;
@@ -30,3 +55,4 @@ body {
   left: 0;
   z-index: -1;
 } */
+
