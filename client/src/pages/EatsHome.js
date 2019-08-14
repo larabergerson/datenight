@@ -9,7 +9,7 @@ import API from '../services/API'
     class FindEats extends Component {
         state = {
             eats: [],
-            message: "ROARRRRRR YOU SUCK"
+            message: "ROARRRRRR"
         };
 
         componentDidMount = () => {
