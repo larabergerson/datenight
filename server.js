@@ -1,24 +1,40 @@
-const express = require("express");
+// dependencies:
+const express = require('express');
+const mongoose = require('mongoose');
+
+// imports:
 const routes = require('./routes');
-// const mongoose = require("mongoose");
-// const routes = require(".datenight./routes");
+
+// express:
 const app = express();
+
+// set port
 const PORT = process.env.PORT || 3001;
 
-// // Define middleware here
+// configure body parsing for AJAX requests (aka Middleware)
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-// }
-// // Add routes, both API and view
+
+// serve statis assets
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+};
+
+// add routes, just API
 app.use(routes);
 
-// // Connect to the Mongo DB
-// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
+const eats_DB = 'clientFaves'
 
-// Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+// connect to mongoose db
+mongoose.connect(
+    process.env.MONGOD_URI || `mongodb://localhost/${eats_DB}`,
+    {
+        useCreateIndex: true,
+        useNewUrlParser: true
+    }
+);
+
+// SERVER LISTENER:
+app.listen(PORT, () => {
+    console.log(`Server is listening on http://localhost/${PORT}`);
 });

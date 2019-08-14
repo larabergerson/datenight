@@ -1,3 +1,3 @@
 module.exports = {
-    Restaurants: require("./restaurantModel.js"),
+    Food: require('./eat.js')
 };

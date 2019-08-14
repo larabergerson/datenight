@@ -1,14 +1,17 @@
-const path = require("path");
-const router = require("express").Router();
-const yelpRoutes = require("./yelp.js");
+const router = require('express').Router();
+// const path = require('path');
 
-// API Routes
-//we are already at /api
-router.use("/yelp", yelpRoutes);
 
-// If no API routes are hit, send the React app
-// router.use(function(req, res) {
-//   res.sendFile(path.join(__dirname, "index.html"));
+// File Imports:
+const eatsRoutes = require('./eats.js');
+
+// API Routes:
+router.use('/eats', eatsRoutes);
+
+
+// router.use(function (req, res) {
+//     res.sendFile(path.join(_dirname, "index.html"));
 // });
 
 module.exports = router;
+
